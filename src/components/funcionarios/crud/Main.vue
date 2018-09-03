@@ -167,13 +167,13 @@ export default {
             funcionario.createdAt = null
             funcionario.updatedAt = null
             res = await axios.put(
-              'http://localhost:3000/funcionarios/' + id,
+              'https://node-str-teste.herokuapp.com/funcionarios/' + id,
               funcionario,
               { headers: { 'x-access-token': token } }
             )
           } else {
             res = await axios.post(
-              'http://localhost:3000/funcionarios',
+              'https://node-str-teste.herokuapp.com/funcionarios',
               funcionario,
               { headers: { 'x-access-token': token } }
             )
@@ -199,7 +199,7 @@ export default {
         const funcionario = this.funcionario
         const id = funcionario.id
         const res = await axios.delete(
-          'http://localhost:3000/funcionarios/' + id,
+          'https://node-str-teste.herokuapp.com/funcionarios/' + id,
           { headers: { 'x-access-token': token } }
         )
         if (res.data) {
@@ -226,7 +226,7 @@ export default {
     async getFuncionarios () {
       try {
         const token = this.$store.state.usuario.token
-        const res = await axios.get('http://localhost:3000/funcionarios', {
+        const res = await axios.get('https://node-str-teste.herokuapp.com/funcionarios', {
           headers: { 'x-access-token': token }
         })
         this.funcionarios = res.data

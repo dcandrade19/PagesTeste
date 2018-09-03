@@ -74,7 +74,7 @@ export default {
         // Enviando dados para api post/cadastro
         try {
           const data = this.auth
-          const res = await axios.post('http://localhost:3000/usuarios', data)
+          const res = await axios.post('https://node-str-teste.herokuapp.com/usuarios', data)
           if (res) {
             setUsuario(this.auth).then((result) => {
               if (this.$store.state.usuario.logado) {

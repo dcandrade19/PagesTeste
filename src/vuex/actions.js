@@ -22,7 +22,7 @@ export const getUsuarioLogado = () => {
 export const setUsuario = async (usuario) => {
   try {
     if (!usuario.deslogar) {
-      const res = await axios.post('http://localhost:3000/usuarios/logar', usuario)
+      const res = await axios.post('https://node-str-teste.herokuapp.com/usuarios/logar', usuario)
       if (res.data.token) {
         const token = res.data.token
         const usuarioData = res.data.usuario
@@ -48,7 +48,7 @@ export const getFuncionarios = () => {
 
 export const setFuncionarios = async () => {
   const token = store.state.usuario.token
-  const res = await axios.get('http://localhost:3000/funcionarios', {headers: {
+  const res = await axios.get('https://node-str-teste.herokuapp.com/funcionarios', {headers: {
     'x-access-token': token
   }})
   const payload = await res.data
